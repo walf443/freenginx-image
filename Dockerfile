@@ -27,6 +27,7 @@ RUN nginx-build -d /tmp/nginx-build \
 FROM debian:trixie-slim
 
 RUN apt-get update && apt-get install -y \
+    openssl \
     libpcre2-8-0 \
     zlib1g \
     && rm -rf /var/lib/apt/lists/* \
