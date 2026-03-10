@@ -36,7 +36,7 @@ COPY --from=builder /usr/local/nginx /usr/local/nginx
 
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/local/sbin/nginx
 
-EXPOSE 80 443
+EXPOSE 80
 
 STOPSIGNAL SIGQUIT
 
