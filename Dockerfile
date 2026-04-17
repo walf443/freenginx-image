@@ -15,7 +15,7 @@ RUN go install github.com/cubicdaiya/nginx-build@latest
 COPY configure.sh /tmp/configure.sh
 RUN chmod +x /tmp/configure.sh
 
-ARG FREENGINX_VERSION=1.29.5
+ARG FREENGINX_VERSION=1.30.0
 RUN nginx-build -d /tmp/nginx-build \
     -freenginx \
     -freenginxversion=${FREENGINX_VERSION} \
