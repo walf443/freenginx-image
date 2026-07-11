@@ -29,20 +29,21 @@ jobs:
 
   build:
     needs: prepare
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.runs-on }}
     permissions:
       contents: read
       packages: write
     strategy:
       matrix:
-        platform: [linux/amd64, linux/arm64]
+        include:
+          - platform: linux/amd64
+            runs-on: ubuntu-24.04
+          - platform: linux/arm64
+            runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v7
 
       - uses: docker/setup-buildx-action@v4
-
-      - uses: docker/setup-qemu-action@v4
-        if: matrix.platform == 'linux/arm64'
 
       - name: Log in to Container Registry
         if: github.event_name != 'pull_request'
